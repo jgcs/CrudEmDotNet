@@ -1,0 +1,40 @@
+﻿@page
+@model WebApplication2.Pages.Funcionarios.AddFunModel
+
+@{
+    var message = ViewData["Message"]?.ToString();
+}
+
+<form method="post">
+    <!-- metodo post para enviar dados-->
+
+    <h1 class = "mb-3">Adicionar Funcionario</h1>
+    @if (!string.IsNullOrWhiteSpace(message))
+    {
+        <div class=" alert alert-success" role="alert">
+            @message
+
+        </div>
+    }
+
+<div class = "mb-3">
+    <label class = " form-label"> Nome</label>
+        <input type="text" class="form-control" asp-for="RequisicaoParaAdicionarFuncionario.Nome" />  <!--creio que seja aqui nessa peste que captura os valores passados pelo usuario-->
+    </div>
+<div class="mb-3">
+    <label class=" form-label"> Email</label>
+    <input type="email" class="form-control"  asp-for="RequisicaoParaAdicionarFuncionario.Email"/>
+</div>
+<div class="mb-3">
+    <label class=" form-label"> Salario</label>
+    <input type="number" class="form-control" asp-for="RequisicaoParaAdicionarFuncionario.Salario" />
+</div>
+<div class="mb-3">
+    <label class=" form-label"> Data de aniversario</label>
+    <input type="date" class="form-control" asp-for="RequisicaoParaAdicionarFuncionario.DataDeAniversario" />
+</div>
+<div class="mb-3">
+    <button type="submit" class="btn btn-primary"> Salvar</button>
+</div>
+
+</form> <!-- fim do formulario--> 

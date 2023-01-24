@@ -1,0 +1,45 @@
+﻿@page
+@model WebApplication2.Pages.Funcionarios.ListFuncionariosModel
+@{
+}
+
+    <h1 class="mb-3"> Lista de funcionarios</h1>
+
+    @if (Model.Funcionariosst != null && Model.Funcionariosst.Any())
+{
+    <table class=" table">
+
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th> Email</th>
+                <th> Salario</th>   
+                <th> Data de aniversario</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var func in Model.Funcionariosst)
+            {
+                <tr>
+                    <td>@func.Nome</td>
+                    <td>@func.Email</td>
+                    <td>@func.Salario</td>
+                    <td>@func.DataDeAniversario</td>
+                    <td> 
+                        <a href="/Funcionarios/Edit/@func.Id " class="btn btn-dark"> Editar</a>
+                    </td>
+                    <td>
+                        <a href="/Funcionarios/Edit/@func.Id " class="btn btn-red"> Excluir</a>
+                    </td>
+                  
+                </tr>
+            }
+        </tbody>
+
+
+    </table>
+}else
+{
+    <h2>Nenhum funcionario foi encontrado</h2>
+}
